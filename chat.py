@@ -2,6 +2,7 @@
 import socket
 import threading
 import sys
+import os
 import configparser
 from cryptography.fernet import Fernet
 
@@ -120,7 +121,7 @@ class ChatClient:
                     # Close the connection and exit the program
                     print('Connection closed by peer.')
                     self.connection.close()
-                    sys.exit(0)
+                    os._exit(0)
                 else:
                     # Ignore other message types
                     pass
@@ -128,7 +129,7 @@ class ChatClient:
             except Exception as e:
                 # Print any exception on the console and exit the program
                 print(e)
-                sys.exit(1)
+                os._exit(0)
 
     # Send messages to the peer
     def send(self):
@@ -154,7 +155,7 @@ class ChatClient:
                     # Close the connection and exit the program
                     print('Connection closed by you.')
                     self.connection.close()
-                    sys.exit(0)
+                    os._exit(0)
                 else:
                     # Encrypt the message with the key and the name attribute
                     encrypted_message = self.key_object.encrypt((self.name + ': ' + message).encode())
@@ -168,7 +169,7 @@ class ChatClient:
             except Exception as e:
                 # Print any exception on the console and exit the program
                 print(e)
-                sys.exit(1)
+                os._exit(0)
 
 # Create a p2p chat client object
 client = ChatClient()
