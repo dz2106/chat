@@ -1,5 +1,7 @@
 chatclient.py
 
+DEMO: https://youtu.be/6nz8sxHrPms
+
 This program is a peer to peer chat platform that leverages the symmetic encryption framework knwon as Fernet. I orignally tried to use PGP but ran into issues with the public key handshake. By using Fernet I was able to massively simplify the encryption side.
 
 The first step is to create config.ini file
